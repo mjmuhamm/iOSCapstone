@@ -19,10 +19,7 @@ final class FlickrViewModel : ObservableObject {
     
     @Published var viewState: FlickrListState = .loading
     @Published var searchText: String = ""
-    
-    private var originalModel : FlickrModel? = nil
-    private var originalItems : [FlickrItem] = []
-    
+
     private var urlAdditions : String = ""
     
     let networkManager : Network
@@ -63,7 +60,6 @@ final class FlickrViewModel : ObservableObject {
                     print("ViewModel Error: \(error)")
                 }
             } receiveValue: { [weak self] response in
-                self?.originalModel = response
                 self?.viewState = .loaded(response)
                 
             }.store(in: &cancellable)
