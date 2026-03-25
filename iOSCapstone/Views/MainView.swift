@@ -36,7 +36,6 @@ struct MainView: View {
     func loadList(list: FlickrModel) -> some View {
         List(list.items) { item in
             FlickrCell(flickrItem: item)
-            .listRowInsets(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16))
             .listRowSeparator(.hidden)
             .listRowBackground(Color.clear)
         }
